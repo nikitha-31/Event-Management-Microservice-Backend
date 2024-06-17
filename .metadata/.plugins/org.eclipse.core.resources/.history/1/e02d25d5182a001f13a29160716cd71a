@@ -1,0 +1,5 @@
+package com.attendee.repository;
+
+public interface AttendeeRepository {
+
+}

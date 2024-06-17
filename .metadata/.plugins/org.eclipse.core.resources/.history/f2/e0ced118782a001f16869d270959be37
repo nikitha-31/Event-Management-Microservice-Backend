@@ -1,0 +1,5 @@
+package com.reporting.service;
+
+public enum VenueClient {
+
+}

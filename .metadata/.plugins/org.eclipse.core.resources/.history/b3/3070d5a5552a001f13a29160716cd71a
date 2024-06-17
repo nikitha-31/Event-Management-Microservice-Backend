@@ -1,0 +1,13 @@
+package com.attendee;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AttendeeEngagementServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AttendeeEngagementServiceApplication.class, args);
+	}
+
+}

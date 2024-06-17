@@ -1,0 +1,5 @@
+package com.venue.repository;
+
+public interface VenueRepository {
+
+}

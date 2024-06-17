@@ -1,0 +1,37 @@
+package com.event.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.event.model.Event;
+import com.event.repository.AttendeeRepository;
+import com.event.repository.EventRepository;
+
+@Service
+public class EventServiceImpl implements EventService{
+	
+	@Autowired
+    private EventRepository eventRepository;
+
+    @Autowired
+    private AttendeeRepository attendeeRepository;
+
+    
+
+    @Override
+    public Event  createEvent(Event event) {
+        return eventRepository.save(event);
+    }
+
+    @Override
+    public Event updateEvent(Long id, Event event) {
+        event.setId(id);
+        return eventRepository.save(event);
+    }
+
+    @Override
+    public void deleteEvent(Long id) {
+        eventRepository.deleteById(id);
+    }
+
+}

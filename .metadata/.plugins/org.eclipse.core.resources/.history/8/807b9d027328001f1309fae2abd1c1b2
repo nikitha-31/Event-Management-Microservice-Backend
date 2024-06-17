@@ -1,0 +1,13 @@
+package com.event.service;
+
+
+import com.event.model.Event;
+
+public interface EventService {
+	
+	Event createEvent(Event event);
+    Event updateEvent(Long id, Event event);
+    void deleteEvent(Long id);
+    //Attendee  registerAttendee(Long eventId, Attendee attendee);
+
+}

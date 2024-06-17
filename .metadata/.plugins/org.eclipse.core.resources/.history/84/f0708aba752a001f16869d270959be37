@@ -1,0 +1,48 @@
+package com.ticket.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ticket.model.Ticket;
+import com.ticket.service.TicketServiceImpl;
+
+@RestController
+@RequestMapping("/tickets")
+public class TicketController {
+
+    @Autowired
+    private TicketServiceImpl ticketService;
+
+    @PostMapping("/issue/{attendeeId}")
+    public ResponseEntity<Ticket> issueTicket(@RequestBody Ticket ticket, @PathVariable Long attendeeId)throws Exception {
+        
+            Ticket issuedTicket = ticketService.issueTicket(ticket, attendeeId);
+            return ResponseEntity.status(HttpStatus.CREATED).body(issuedTicket);
+        
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getTicketById(@PathVariable Long id) {
+        Ticket ticket = ticketService.getTicketById(id);
+        if (ticket != null) {
+        	return new ResponseEntity<>(ticket, HttpStatus.OK);
+        } else {
+        	return new ResponseEntity<>("No ticket found with ID: " + id, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Ticket>> getAllTickets() {
+        List<Ticket> tickets = ticketService.getAllTickets();
+        return ResponseEntity.status(HttpStatus.OK).body(tickets);
+    }
+}

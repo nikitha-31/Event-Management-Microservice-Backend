@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Gateway-Service"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Eurekha-Server"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Analytics-Reporting-Service"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Attendee-Engagement-Service"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Speaker-Scheduling-Service"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Venue-Management-Service"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Ticketing-Service"/>
+			<item value="D:\Spring Boot or Microservices Projects\Event Management Microservices\Event-Registration-Service"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

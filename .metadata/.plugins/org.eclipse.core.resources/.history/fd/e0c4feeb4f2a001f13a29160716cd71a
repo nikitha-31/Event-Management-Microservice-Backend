@@ -1,0 +1,5 @@
+package com.attendee.service;
+
+public interface AttendeeService {
+
+}

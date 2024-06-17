@@ -1,0 +1,35 @@
+package com.attendee.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.attendee.model.Attendee;
+import com.attendee.model.EventDto;
+import com.attendee.repository.AttendeeRepository;
+
+
+
+public class AttendeeServiceImpl implements AttendeeService {
+
+	@Autowired
+	private EventClient eventClient;
+	
+	@Autowired
+	private AttendeeRepository attendeeRepository;
+	
+	@Override
+    public Attendee registerAttendee(Attendee attendee) throws Exception {
+        EventDto event = eventClient.getEventById(attendee.getEventId());
+        if (event != null) {
+            return attendeeRepository.save(attendee);
+        } else {
+            throw new Exception("Event not found with ID: " + attendee.getEventId());
+        }
+    }
+
+	@Override
+	public Attendee getAttendeeById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

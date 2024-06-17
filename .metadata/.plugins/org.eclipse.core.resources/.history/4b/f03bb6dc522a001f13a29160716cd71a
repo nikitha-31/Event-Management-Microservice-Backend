@@ -1,0 +1,20 @@
+package com.attendee.service;
+
+import com.attendee.model.Attendee;
+
+public class AttendeeServiceImpl implements AttendeeService {
+
+	
+	@Override
+	public Attendee registerAttendee(Attendee attendee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Attendee getAttendeeById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

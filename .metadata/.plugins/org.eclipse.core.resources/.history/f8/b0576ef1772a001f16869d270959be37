@@ -1,0 +1,5 @@
+package com.reporting.Dto;
+
+public class VenueDto {
+
+}

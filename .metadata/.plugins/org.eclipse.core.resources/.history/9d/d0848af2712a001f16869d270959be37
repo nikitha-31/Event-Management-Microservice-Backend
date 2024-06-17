@@ -1,0 +1,40 @@
+package com.ticket.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.ticket.repository.TicketRepositoty;
+import com.ticket.model.AttendeeDto;
+import com.ticket.model.Ticket;
+
+public class TicketServiceImpl implements TicketService{
+
+	@Autowired
+	private AttendeeClient attendeeClient;
+	
+	@Autowired
+	private TicketRepositoty ticketRepositoty ;
+	
+	@Override
+	public Ticket issueTicket(Ticket ticket,Long attendeeId) throws Exception{
+		AttendeeDto attendee=attendeeClient.getAttendeeById(attendeeId);
+		if(attendee!=null)
+		{
+			return ticketRepositoty.save(ticket);
+		}
+		throw new Exception("attendee not found by id"+attendeeId);
+	}
+
+	@Override
+	public Ticket getTicketById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ticket> getAllTickets() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

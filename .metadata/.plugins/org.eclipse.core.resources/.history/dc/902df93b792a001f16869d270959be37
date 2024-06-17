@@ -1,0 +1,12 @@
+package com.reporting.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(name = "TICKETING-SERVICE", url = "http://localhost:8004")
+public interface TicketClient {
+	
+	@GetMapping("/tickets/all")
+	List<TicketDto> 
+
+}

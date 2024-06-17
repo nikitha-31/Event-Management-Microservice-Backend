@@ -1,0 +1,51 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: GATEWAY-SERVICE
+    
+  
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: EVENT-REGISTRATION-SERVICE
+          uri: lb://EVENT-REGISTRATION-SERVICE
+          predicates:
+            - Path=/events/**, /events/update/**, /events/delete/**
+        - id: VENUE-MANAGEMENT-SERVICE
+          uri: lb://VENUE-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/venues/**,/venues/book/**, /venues/delete/**, /venues/get/**
+        - id: ATTENDEE-ENGAGEMENT-SERVICE
+          uri: lb://ATTENDEE-ENGAGEMENT-SERVICE
+          predicates:
+            - Path=/attendees/**, /attendees/get/**
+        - id: TICKETING-SERVICE
+          uri: lb://TICKETING-SERVICE
+          predicates:
+            - Path=/tickets/**, /tickets/issue/**
+        - id: ANALYTICS-REPORTING-SERVICE
+          uri: lb://ANALYTICS-REPORTING-SERVICE
+          predicates:
+            - Path=/api/**
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]': 
+            allowedOrigins: "*"  
+            allowedMethods: "*"  
+            allowedHeaders: "*"  
+       
+          
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8006/eureka/
